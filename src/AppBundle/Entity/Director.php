@@ -26,4 +26,24 @@ class Director
      * @ORM\OneToMany(targetEntity="Film", mappedBy="director")
      */
     private $films;
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setFilms($films)
+    {
+        $this->films = $films;
+    }
+
+    public function getFilms()
+    {
+        return $this->films;
+    }
 }

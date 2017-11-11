@@ -96,4 +96,64 @@ class Film
     {
         $this->rating = $rating;
     }
+
+    public function getReleaseDate()
+    {
+        return $this->releaseDate;
+    }
+
+    public function setReleaseDate($releaseDate)
+    {
+        $this->releaseDate = $releaseDate;
+    }
+
+    public function getRunningTime()
+    {
+        return $this->runningTime;
+    }
+
+    public function setRunningTime($runningTime)
+    {
+        $this->runningTime = $runningTime;
+    }
+
+    public function getImgUrl()
+    {
+        return $this->imgUrl;
+    }
+
+    public function setImgUrl($imgUrl)
+    {
+        $this->imgUrl = $imgUrl;
+    }
+
+    public function getGenres()
+    {
+        return $this->genres;
+    }
+
+    public function setGenres($genres)
+    {
+        $this->genres = $genres;
+    }
+
+    public function getDirector()
+    {
+        return $this->director;
+    }
+
+    public function setDirector($director)
+    {
+        $this->director = $director;
+    }
+
+    public function getActors()
+    {
+        return $this->actors;
+    }
+
+    public function setActors($actors)
+    {
+        $this->actors = $actors;
+    }
 }

@@ -26,4 +26,24 @@ class Genre
      * @ORM\ManyToMany(targetEntity="Film", mappedBy="genres")
      */
     private $films;
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setFilms($films)
+    {
+        $this->films = $films;
+    }
+
+    public function getFilms()
+    {
+        return $this->films;
+    }
 }

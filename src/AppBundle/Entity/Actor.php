@@ -23,7 +23,27 @@ class Actor
     protected $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Film", inversedBy="actors")
+     * @ORM\ManyToMany(targetEntity="Film", mappedBy="actors")
      */
     protected $films;
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setFilms($films)
+    {
+        $this->films = $films;
+    }
+
+    public function getFilms()
+    {
+        return $this->films;
+    }
 }
