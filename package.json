@@ -1,0 +1,10 @@
+{
+  "description": "films",
+  "license": "MIT",
+  "scripts": {
+    "start": "grunt"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7"
+  }
+}
