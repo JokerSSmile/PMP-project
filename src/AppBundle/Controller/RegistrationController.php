@@ -2,6 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\Gender;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,6 +28,9 @@ class RegistrationController extends Controller
 
             // Set their role
             $user->setRole('ROLE_USER');
+
+            $gender = $this->getDoctrine()->getRepository(Gender::class)->find($user->getGender());
+            $user->setGender($gender);
 
             // Save
             $em = $this->getDoctrine()->getManager();

@@ -72,6 +72,11 @@ class Film
      */
     protected $actors;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="films")
+     */
+    protected $users;
+
     public function getId()
     {
         return $this->id;
@@ -185,5 +190,15 @@ class Film
     public function setActors($actors)
     {
         $this->actors = $actors;
+    }
+
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    public function setUsers($users)
+    {
+        $this->users = $users;
     }
 }

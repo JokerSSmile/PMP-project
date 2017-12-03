@@ -27,7 +27,37 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=40)
      */
-    protected $name;
+    protected $nickname;
+
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    protected $firstName;
+
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    protected $surname;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $age;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
+     */
+    protected $gender;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    protected $phone;
+
+    /**
+     * @ORM\Column(type="string", length=256, nullable=true)
+     */
+    protected $userImageUrl;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -43,6 +73,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=64)
      */
     protected $password;
+
+    /**
+     * @ORM\OneToMany(targetEntity="UserReview", mappedBy="user")
+     */
+    private $reviews;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Film", mappedBy="users")
+     */
+    private $films;
 
     public function eraseCredentials()
     {
@@ -69,14 +109,19 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function setName($name)
+    public function setNickname($nickname)
     {
-        $this->name = $name;
+        $this->nickname = $nickname;
+    }
+
+    public function getNickname()
+    {
+        return $this->nickname;
     }
 
     public function getName()
     {
-        return $this->name;
+        return $this->getNickname();
     }
 
     public function getUsername()
@@ -117,5 +162,85 @@ class User implements UserInterface
     public function getSalt()
     {
         return null;
+    }
+
+    public function setReviews($reviews)
+    {
+        $this->reviews = $reviews;
+    }
+
+    public function getReviews()
+    {
+        return $this->reviews;
+    }
+
+    public function setFilms($films)
+    {
+        $this->films = $films;
+    }
+
+    public function getFilms()
+    {
+        return $this->films;
+    }
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+    }
+
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    public function setUserImageUrl($userImageUrl)
+    {
+        $this->userImageUrl = $userImageUrl;
+    }
+
+    public function getUserImageUrl()
+    {
+        return $this->userImageUrl;
     }
 }

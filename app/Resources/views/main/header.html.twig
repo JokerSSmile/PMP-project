@@ -4,7 +4,7 @@
   <div class="header-left">
     <img src="src/images/profile.png" class="rounded-circle user-profile" />
     {% if app.user != null %}
-      <a href="/profile"> Привет, {{ app.user.name }} </a>
+      <a href="/profile"> Привет, {{ app.user.firstName }} </a>
     {% endif %}
     {% if app.user == null %}
       <a href="/login"> Войти </a>
