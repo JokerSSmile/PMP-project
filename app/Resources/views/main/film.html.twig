@@ -1,0 +1,64 @@
+{% extends 'main/base.html.twig' %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+        <img src="src/images/wide-posters/{{ film.wideImgUrl }}" class="wide-poster" />
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+        <span class="film-title">{{ film.title }}</span>
+        <span class="film-period">В кино с {{ film.releaseDate|date('d M Y') }} до {{ film.endDate|date('d M Y') }}</span>
+        <span class="film-director">{{ film.director.name }}</span>
+        <span>{{ film.runningTime|date('H:i') }}</span>
+        <p class="film-description">{{ film.description }}</p>
+      </div>
+      <div class="col-md-2">
+        <span class="film-actors">
+            {% for actor in film.actors %}
+                {{ actor.name }} <br>
+            {% endfor %}
+        </span>
+      </div>  
+    </div>
+    <div class="row col-md-10">
+        <div class="col-md-2">
+            sdffsdf
+        </div>
+        <div class="col-md-10">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+  
+
+{% endblock %}

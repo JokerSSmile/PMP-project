@@ -23,7 +23,7 @@ class Film
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=1000)
      */
     protected $description;
 
@@ -38,6 +38,11 @@ class Film
     protected $releaseDate;
 
     /**
+     * @ORM\Column(type="date")
+     */
+    protected $endDate;
+
+    /**
      * @ORM\Column(type="time")
      */
     protected $runningTime;
@@ -46,6 +51,11 @@ class Film
      * @ORM\Column(type="string", length=255)
      */
     protected $imgUrl;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $wideImgUrl;
 
     /**
      * @ORM\ManyToMany(targetEntity="Genre", inversedBy="films")
@@ -107,6 +117,16 @@ class Film
         $this->releaseDate = $releaseDate;
     }
 
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
+
     public function getRunningTime()
     {
         return $this->runningTime;
@@ -125,6 +145,16 @@ class Film
     public function setImgUrl($imgUrl)
     {
         $this->imgUrl = $imgUrl;
+    }
+
+    public function getWideImgUrl()
+    {
+        return $this->wideImgUrl;
+    }
+
+    public function setWideImgUrl($wideImgUrl)
+    {
+        $this->wideImgUrl = $wideImgUrl;
     }
 
     public function getGenres()

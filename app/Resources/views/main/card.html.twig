@@ -1,0 +1,19 @@
+<section class="col-md-10">
+  <div class="post">
+    <div class="row">
+      <div class="col-md-4 post-poster">
+        <img src="src/images/posters/{{ film.imgUrl }}" class="post-image" />
+      </div>
+      <div class="col-md-7 caption">
+        <a href="/film?id={{ film.id }}" class="post-title">{{ film.title }}</a>
+        <span class="post-tag">
+          {% for genre in film.genres %}
+              #{{genre.name}}
+          {% endfor %}
+        </span>
+        <span class="post-date">{{ film.releaseDate|date('d M Y') }} - {{ film.endDate|date('d M Y') }}</span>
+        <p class="post-description">{{ film.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+{% extends 'main/base.html.twig' %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+
+        {% for film in films %}
+          {% include "main/card.html.twig" with { 'film': film } %}
+        {% endfor %}
+
+    </div>
+  </div>
+  
+
+{% endblock %}

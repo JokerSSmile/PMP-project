@@ -1,0 +1,13 @@
+<div class="header">
+  <a id="header-title" href="/"> FilMeet </a>
+
+  <div class="header-left">
+    <img src="src/images/profile.png" class="rounded-circle user-profile" />
+    {% if app.user != null %}
+      <a href="/profile"> Привет, {{ app.user.name }} </a>
+    {% endif %}
+    {% if app.user == null %}
+      <a href="/login"> Войти </a>
+    {% endif %}
+  </div>
+</div>
