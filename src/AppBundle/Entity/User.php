@@ -184,6 +184,11 @@ class User implements UserInterface
         return $this->films;
     }
 
+    public function addFilm($film)
+    {
+        $this->films[] = $film;
+    }
+
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
