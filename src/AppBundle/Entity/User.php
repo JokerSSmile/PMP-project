@@ -84,6 +84,21 @@ class User implements UserInterface
      */
     private $films;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="iWantToGoWith")
+     */
+    private $wantsToGoWithMe;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="wantsToGoWithMe")
+     */
+    private $iWantToGoWith;
+
+    /**
+     * @ORM\OneToMany(targetEntity="History", mappedBy="partner")
+     */
+    private $history;
+
     public function eraseCredentials()
     {
         return null;
@@ -189,6 +204,11 @@ class User implements UserInterface
         $this->films[] = $film;
     }
 
+    public function removeFilm($film)
+    {
+        $this->films->removeElement($film);
+    } 
+
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
@@ -247,5 +267,25 @@ class User implements UserInterface
     public function getUserImageUrl()
     {
         return $this->userImageUrl;
+    }
+
+    public function getWantsToGoWithMe()
+    {
+        return $this->wantsToGoWithMe;
+    }
+
+    public function getIWantToGoWith()
+    {
+        return $this->iWantToGoWith;
+    }
+
+    public function addWantsToGoWithMe($user)
+    {
+        $this->wantsToGoWithMe[] = $user;
+    }
+
+    public function addIWantToGoWith($user)
+    {
+        $this->iWantToGoWith[] = $user;
     }
 }

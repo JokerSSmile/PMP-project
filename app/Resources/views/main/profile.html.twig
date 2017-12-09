@@ -1,0 +1,36 @@
+{% extends 'main/base.html.twig' %}
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <img src="src/images/profile.png">
+        </div>
+        <div class="col-md-10">
+            <span>{{ user.firstName }} {{ user.surname }}</span>
+            <span>{{ user.nickname }}</span>
+            <span>{{ 4 }}</span>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Приглашения</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">История</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Настройки</a>
+            </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

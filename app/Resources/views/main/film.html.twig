@@ -32,18 +32,27 @@
                     {% for user in film.users %}
                         <tr>
                             <th scope="row">
-                                <img src="src/images/users/{{user.userImageUrl}}" />
+                                <img src="src/images/users/{{ user.userImageUrl }}" />
                             </th>
                             <td>{{ user.firstName }} {{ user.surname }}</td>
                             <td>{{ 4 }}</td>
                             <td>
-                                <button type="button" class="btn btn-link">Пригласить!</button>
+                                {% if app.user != null and app.user.name != user.nickname %}
+                                    <button onclick="goToUserProfile({{ user.id }})" type="button" class="btn btn-link">Пригласить!</button>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
-            <button id="subscribe" type="button" class="btn">Хочу тоже!</button>
+            {% if app.user != null %}
+                {% if isUserSubscribed == false %}
+                    <button onclick="subscribe({{ film.id }})" type="button" class="btn">Хочу тоже!</button>
+                {% endif %}
+                {% if isUserSubscribed == true %}
+                    <button onclick="unsubscribe({{ film.id }})" type="button" class="btn">Больше не хочу!</button>
+                {% endif %}
+            {% endif %}
         </div>
     </div>
   </div>

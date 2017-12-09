@@ -8,7 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity
  */
-class Film implements \JsonSerializable
+class Film
 {
     /**
      * @ORM\Id;
@@ -76,24 +76,6 @@ class Film implements \JsonSerializable
      * @ORM\ManyToMany(targetEntity="User", inversedBy="films")
      */
     protected $users;
-
-    public function jsonSerialize() {
-        return [
-            'id' => $this->getId(),
-            'title' => $this->getTitle(),
-            'description' => $this->getDescription(),
-            'rating' => $this->getRating(),
-            'releaseDate' => $this->getReleaseDate(),
-            'endDate' => $this->getEndDate(),
-            'runningTime' => $this->getRunningTime(),
-            'imgUrl' => $this->getImgUrl(),
-            'wideImgUrl' => $this->getWideImgUrl(),
-            'genres' => $this->getGenres(),
-            'director' => $this->getDirector(),
-            'actors' => $this->getActors(),
-            'users' => $this->getUsers()
-        ];
-    }
 
     public function getId()
     {
@@ -223,5 +205,10 @@ class Film implements \JsonSerializable
     public function addUser($user)
     {
         $this->users[] = $user;
+    }
+
+    public function removeUser($user)
+    {
+        $this->users->removeElement($user);
     } 
 }

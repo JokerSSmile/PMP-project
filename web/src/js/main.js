@@ -1,11 +1,14 @@
 window.onload = function() {
-    var subscribeButton = document.getElementById('subscribe');
-    subscribeButton.onclick = function () {
-        var url = new URL(window.location.href);
-        var filmId = url.searchParams.get("id");
+}
 
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/subscribe?filmId=' + filmId, false);
-        xhr.send();
-    }
+unsubscribe = function(filmId) {
+    location.href = "/unsubscribe?id=" + filmId;
+}
+
+subscribe = function(filmId) {
+    location.href = "/subscribe?id=" + filmId;
+}
+
+goToUserProfile = function(userId) {
+    location.href = "/profile?id=" + userId;
 }
